@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+    <title>Title</title>
+</head>
+<body>
+
+    <!--header-->
+    <div class="container mw-100 block" th:fragment="headerFragment">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+
+            <!--        code for image-->
+            <!--        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">-->
+            <!--            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use  type="image/png" th:href="@{browserIcon.png}"></use></svg>-->
+            <!--        </a>-->
+            <!--        xlink:href="#bootstrap"-->
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="http://localhost:1005" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="http://localhost:1005/store" class="nav-link px-2 link-secondary">Library</a></li>
+                <li><a href="#" class="nav-link px-2 link-secondary"><s>Pricing</s></a></li>
+                <li><a href="#" class="nav-link px-2 link-secondary"><s>FAQs</s></a></li>
+                <li><a href="#" class="nav-link px-2 link-secondary"><s>About</s></a></li>
+            </ul>
+
+            <div class="col-md-3 text-end">
+                <button type="button" class="btn btn-outline-secondary me-2">Login</button>
+                <button type="button" class="btn btn-secondary">Sign-up</button>
+            </div>
+        </header>
+    </div>
+
+</body>
+</html>
+
+
+

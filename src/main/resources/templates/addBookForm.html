@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Browser icon-->
+    <link rel="shortcut icon" type="image/png" th:href="@{browserIcon.png}"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+    <title>Add book</title>
+</head>
+<body>
+
+<div class="content">
+
+    <!--header-->
+    <header th:insert="blocks/header :: headerFragment"></header>
+    <!--header-->
+
+    <div style="width: 400px; margin: 50px auto 0 auto" id="block">
+
+        <h3 style="text-align: center; color: grey">Add book to the library</h3>
+
+        <form th:method="POST" th:object="${book}">
+
+            <div class="form-group">
+                <input type="text" th:field="*{bookTitle}" id="bookTitle"  class="form-control" placeholder="Book title">
+                <!--error message-->
+                <ul>
+                    <li th:if="${#fields.hasErrors('bookTitle')}" th:errors="*{bookTitle}"/>
+                </ul>
+            </div>
+
+            <div class="form-group" style="margin-top: 3px ">
+                <input type="text" th:field="*{author}" id="author" class="form-control"  placeholder="Author">
+                <!--error message-->
+                <ul>
+                    <li th:if="${#fields.hasErrors('author')}" th:errors="*{author}"/>
+                </ul>
+            </div>
+
+            <div class="form-group" style="margin-top: 3px">
+                <input type="text" th:field="*{language}" id="language" class="form-control"  placeholder="Language">
+                <!--error message-->
+                <ul>
+                    <li th:if="${#fields.hasErrors('language')}" th:errors="*{language}"/>
+                </ul>
+            </div>
+
+            <div class="form-group" style="margin-top: 3px">
+                <input type="text" th:field="*{pages}" id="pages" class="form-control"  placeholder="Pages">
+                <!--error message-->
+                <ul>
+                    <li th:if="${#fields.hasErrors('pages')}" th:errors="*{pages}"/>
+                </ul>
+            </div>
+
+            <div class="form-group" style="margin-top: 3px">
+                <input type="text" th:field="*{monthlyRent}"  id="monthlyRent" class="form-control" autocomplete="off" placeholder="Monthly rent">
+                <!--error message-->
+                <ul>
+                    <li th:if="${#fields.hasErrors('monthlyRent')}" th:errors="*{monthlyRent}"/>
+                </ul>
+            </div>
+
+            <div class="form-group" style="margin-top: 3px">
+                <input type="text" th:field="*{publishYear}"  id="publishYear" class="form-control"  placeholder="Publish year (optional)">
+                <!--error message-->
+                <ul>
+                    <li th:if="${#fields.hasErrors('publishYear')}" th:errors="*{publishYear}"/>
+                </ul>
+            </div>
+
+            <div class="form-group" style="margin-top: 3px">
+                <input type="text" th:field="*{ISBN}" id="ISBN" class="form-control"  placeholder="ISBN (optional)">
+            </div>
+
+            <select th:field="*{bookAvailability}" id="bookAvailability" class="form-select" aria-label="Default select example" style="margin-top: 3px">
+                <option th:value="'unavailable'" th:text="Unavailable" style="color: crimson">unavailable</option>
+                <option  th:value="'available'" th:text="Available" style="color: seagreen">available</option>
+                <!--error message-->
+                <ul>
+                    <li th:if="${#fields.hasErrors('bookAvailability')}" th:errors="*{bookAvailability}"/>
+                </ul>
+            </select>
+
+            <button type="submit" class="btn btn-outline-secondary" style="margin-top: 10px">Add</button>
+
+        </form>
+
+    </div>
+
+</div><!--content-->
+
+<!--footer-->
+<div th:insert="blocks/footer :: footerFragment"></div>
+<!--footer-->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
